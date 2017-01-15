@@ -1,1 +1,1 @@
-/home/time/.vimrc
+.vim/vimrc
