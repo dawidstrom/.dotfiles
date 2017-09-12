@@ -1,6 +1,4 @@
-#
 # ~/.bashrc
-#
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -11,12 +9,14 @@ alias la='ls -Fa --color=auto'
 alias lla='ls -Fla --color=auto'
 alias l='ls -F --color=auto'
 alias gött='git'
+alias eta='sudo netctl stop eduroam && sync && sudo systemctl start netctl-auto@wlp3s0'
+alias ate='sudo systemctl stop netctl-auto@wlp3s0 && sync && sudo netctl start eduroam'
 
 alias open='xdg-open'
 PS1='[\u@\h \W]\$ $(gp)'
 
 export EDITOR="vim"
-export PATH=/home/time/.cabal/bin:/home/time/.gem/ruby/2.3.0/bin:/usr/bin/:/home/time/bin:$PATH
+export PATH=/home/time/.cabal/bin:/home/time/.gem/ruby/2.4.0/bin:/usr/bin/:/home/time/bin:$PATH
 
 function gp() {
 	x=$(git rev-parse 2>/dev/null; echo $?);

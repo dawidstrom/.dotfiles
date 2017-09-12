@@ -14,6 +14,10 @@ super + alt + Escape
 super + w
 	bspc node -c
 
+#Resize
+super + {h,j,k,l}
+	bspc window -e {right-10,up+10,down-10,left+10}
+
 #Floating/Tiled/Maximize
 super + {f,t,m,n}
 	bspc node -t {floating,tiled,fullscreen,pseduo_tiled}
@@ -30,7 +34,7 @@ super + {o,i}
 
 #Make focused node largest
 super + s
-	bspc node -s biggest
+	bspc node -s biggest.local
 
 #Move to workspace
 super + {_,shift + }{1-9,0}
@@ -40,9 +44,17 @@ super + {_,shift + }{1-9,0}
 ~button1
 	bspc node pointed -f
 
-#Move,Resize on mousepress
-super + button{1-3}
-	; bspc pointer -g {move,resize_side,resize_corner}
+#Move
+super + button1
+	bspc pointer move
+
+# Resize
+super + button2
+	bspc pointer resize_corner
+
+# Move to back
+super + p
+	bspc node -l below
 
 #Stop Move,Resize on mouserelease
 #super + @button{1-3}
@@ -67,6 +79,10 @@ super + space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# reload bspc?
+super + r
+	./~/.config/bspwm/bspwmrc
 
 # Volume increase
 XF86AudioRaiseVolume
