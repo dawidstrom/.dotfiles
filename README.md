@@ -1,6 +1,6 @@
 # .dotfiles
-My dotfiles and config files for:
+My dotfiles for:
 * vim
 * bash
-* bspwm
-* sxhkd
+* i3
+* tmux

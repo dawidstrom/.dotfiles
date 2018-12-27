@@ -1,27 +1,21 @@
+#
 # ~/.bashrc
+#
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+. ~/.config/bashhelpers/git-completion.bash
+. ~/.config/bashhelpers/git-prompt.sh
+
+export GIT_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWUPSTREAM="auto"
 
 alias ls='ls -F --color=auto'
-alias ll='ls -Fl --color=auto'
-alias la='ls -Fa --color=auto'
-alias lla='ls -Fla --color=auto'
-alias l='ls -F --color=auto'
-alias gött='git'
-alias eta='sudo netctl stop eduroam && sync && sudo systemctl start netctl-auto@wlp3s0'
-alias ate='sudo systemctl stop netctl-auto@wlp3s0 && sync && sudo netctl start eduroam'
+alias ll='ls -lF --color=auto'
+alias l='ls -laF --color=auto'
 
-alias open='xdg-open'
-PS1='[\u@\h \W]\$ $(gp)'
+set nobell=true
 
-export EDITOR="vim"
-export PATH=/home/time/.cabal/bin:/home/time/.gem/ruby/2.4.0/bin:/usr/bin/:/home/time/bin:$PATH
-
-function gp() {
-	x=$(git rev-parse 2>/dev/null; echo $?);
-	y=$(git rev-parse --abbrev-ref HEAD 2>/dev/null; echo $?);
-	if [[ $x == "0" && $y == "0" ]]; then
-		echo -n "["`git rev-parse --abbrev-ref HEAD` "|" `git status -s | awk '{print $1}' | uniq -c` "] "
-	fi
-}
+export PROMPT_COMMAND='__git_ps1 "\w" "\\\$ "'
+#export PS1='[\u@\h \W] $(__git_ps1 " (%s)" )\$ '
