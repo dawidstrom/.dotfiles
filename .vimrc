@@ -56,7 +56,3 @@ set fo+=t
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-t> :TagbarToggle<CR>
-
-" Reminder to use the surround plugin more.
-set laststatus=2
-set statusline=Remember\ to\ use\ the\ surround\ plugin.
