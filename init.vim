@@ -41,7 +41,9 @@ Plug 'https://github.com/morhetz/gruvbox.git'
 
 " CoC, language completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'codota/tabnine-vim'
+
+" Rust RON highlighting
+Plug 'ron-rs/ron.vim'
 
 call plug#end()
 
